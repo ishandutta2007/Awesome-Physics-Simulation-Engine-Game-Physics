@@ -1,0 +1,159 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0d1a" />
+      <stop offset="50%" stop-color="#101935" />
+      <stop offset="100%" stop-color="#070a14" />
+    </linearGradient>
+
+    <!-- Glowing Accent Gradients -->
+    <linearGradient id="primary-glow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="50%" stop-color="#818cf8" />
+      <stop offset="100%" stop-color="#c084fc" />
+    </linearGradient>
+
+    <linearGradient id="accent-cyan" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00f2fe" />
+      <stop offset="100%" stop-color="#4facfe" />
+    </linearGradient>
+
+    <linearGradient id="accent-orange" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff0844" />
+      <stop offset="100%" stop-color="#ffb199" />
+    </linearGradient>
+
+    <radialGradient id="particle-glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#38bdf8" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- Physics Grid Pattern -->
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#ffffff" stroke-opacity="0.04" stroke-width="1" />
+      <circle cx="40" cy="40" r="1.5" fill="#38bdf8" fill-opacity="0.15" />
+    </pattern>
+
+    <filter id="glow-effect" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <filter id="shadow-effect" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000000" flood-opacity="0.6" />
+    </filter>
+  </defs>
+
+  <style>
+    @keyframes floatSlow {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-12px) rotate(3deg); }
+    }
+    @keyframes orbitPulse {
+      0% { transform: scale(1); opacity: 0.4; }
+      50% { transform: scale(1.08); opacity: 0.8; }
+      100% { transform: scale(1); opacity: 0.4; }
+    }
+    @keyframes collideMove {
+      0% { transform: translate(0, 0); }
+      40% { transform: translate(35px, 20px); }
+      60% { transform: translate(-10px, -15px); }
+      100% { transform: translate(0, 0); }
+    }
+    @keyframes pendulum {
+      0%, 100% { transform: rotate(-18deg); }
+      50% { transform: rotate(18deg); }
+    }
+    @keyframes streamFlow {
+      0% { stroke-dashoffset: 120; }
+      100% { stroke-dashoffset: 0; }
+    }
+    .floating-card { animation: floatSlow 6s ease-in-out infinite; }
+    .collision-node { animation: collideMove 7s ease-in-out infinite; }
+    .pendulum-swing { transform-origin: 1040px 40px; animation: pendulum 3.5s ease-in-out infinite; }
+    .pulse-ring { transform-origin: center; animation: orbitPulse 4s ease-in-out infinite; }
+    .flow-line { stroke-dasharray: 8 6; animation: streamFlow 4s linear infinite; }
+  </style>
+
+  <!-- Background Layer -->
+  <rect width="1200" height="360" fill="url(#bg-grad)" rx="16" />
+  <rect width="1200" height="360" fill="url(#grid)" rx="16" />
+
+  <!-- Dynamic Ambient Physics Visualizations (Background/Sides) -->
+  <g opacity="0.65">
+    <!-- Orbital Field / Collision Waves (Left Side) -->
+    <circle cx="160" cy="180" r="110" fill="none" stroke="#38bdf8" stroke-width="1.5" stroke-opacity="0.25" class="pulse-ring" />
+    <circle cx="160" cy="180" r="70" fill="none" stroke="#818cf8" stroke-width="1" stroke-opacity="0.3" />
+    <circle cx="160" cy="180" r="30" fill="url(#accent-cyan)" opacity="0.3" />
+
+    <!-- Trajectory Curves -->
+    <path d="M 60 280 Q 220 120 380 260 T 640 180" fill="none" stroke="#38bdf8" stroke-width="2" class="flow-line" opacity="0.3" />
+    <path d="M 120 320 C 300 240 450 340 700 290" fill="none" stroke="#c084fc" stroke-width="1.5" class="flow-line" opacity="0.25" />
+    
+    <!-- Dynamic Physics Pendulum (Right Side) -->
+    <g class="pendulum-swing">
+      <line x1="1040" y1="40" x2="1040" y2="180" stroke="#818cf8" stroke-width="2" stroke-opacity="0.7" />
+      <circle cx="1040" cy="180" r="22" fill="url(#accent-orange)" filter="url(#glow-effect)" />
+    </g>
+
+    <!-- Rigid-Body Collision Polygons (Floating Dynamics) -->
+    <g class="collision-node">
+      <polygon points="1060,240 1110,220 1130,270 1080,290" fill="none" stroke="#38bdf8" stroke-width="2" stroke-opacity="0.4" />
+      <circle cx="1090" cy="255" r="4" fill="#38bdf8" />
+    </g>
+
+    <g class="floating-card">
+      <circle cx="940" cy="110" r="14" fill="#38bdf8" fill-opacity="0.2" stroke="#38bdf8" stroke-width="1.5" />
+      <circle cx="980" cy="140" r="8" fill="#818cf8" fill-opacity="0.4" />
+      <line x1="940" y1="110" x2="980" y2="140" stroke="#818cf8" stroke-width="1.5" stroke-dasharray="3 3" opacity="0.5" />
+    </g>
+  </g>
+
+  <!-- Foreground Content: Header, Badges & Title (Always Sharp & Clear) -->
+  <g transform="translate(100, 65)">
+    <!-- Pill Badge -->
+    <g filter="url(#shadow-effect)">
+      <rect x="0" y="0" width="310" height="34" rx="17" fill="#1e293b" fill-opacity="0.85" stroke="#38bdf8" stroke-width="1" />
+      <circle cx="16" cy="17" r="5" fill="#10b981">
+        <animate attributeName="opacity" values="1;0.4;1" dur="2s" repeatCount="indefinite" />
+      </circle>
+      <text x="32" y="22" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" letter-spacing="1.2">CURATED ECOSYSTEM 2026</text>
+    </g>
+
+    <!-- Main Title -->
+    <text x="0" y="90" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="44" font-weight="800" letter-spacing="-0.5" filter="url(#shadow-effect)">
+      Awesome Physics Simulation
+    </text>
+    <text x="0" y="136" fill="url(#primary-glow)" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="38" font-weight="800" letter-spacing="-0.5" filter="url(#glow-effect)">
+      &amp; Game Physics Engines 🎮⚡
+    </text>
+
+    <!-- Subtitle Description -->
+    <text x="0" y="180" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="16" font-weight="400">
+      Rigid-Body Dynamics • Real-Time Collision Detection • Soft Bodies &amp; Cloth • Deterministic Rollback
+    </text>
+
+    <!-- Tech Tags / Interactive Feature Indicators -->
+    <g transform="translate(0, 206)">
+      <!-- Tag 1 -->
+      <rect x="0" y="0" width="118" height="28" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1" />
+      <text x="14" y="18" fill="#38bdf8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial" font-size="12" font-weight="600">⚡ C++ / Rust</text>
+      
+      <!-- Tag 2 -->
+      <rect x="130" y="0" width="138" height="28" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1" />
+      <text x="144" y="18" fill="#818cf8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial" font-size="12" font-weight="600">🌐 WebGPU / Wasm</text>
+
+      <!-- Tag 3 -->
+      <rect x="280" y="0" width="134" height="28" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1" />
+      <text x="294" y="18" fill="#c084fc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial" font-size="12" font-weight="600">🎯 Deterministic</text>
+
+      <!-- Tag 4 -->
+      <rect x="426" y="0" width="130" height="28" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1" />
+      <text x="440" y="18" fill="#34d399" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial" font-size="12" font-weight="600">🛡️ 2D / 3D Solvers</text>
+    </g>
+  </g>
+</svg>
