@@ -7,7 +7,7 @@
 <a href="https://github.com/ishandutta2007/Awesome-Awesome-Awesome"><img src="https://img.shields.io/badge/Awesome-%E2%9C%94-blueviolet?style=flat-square&logo=github" alt="Awesome"/></a><a href="https://discord.gg/jc4xtF58Ve"><img src="https://img.shields.io/badge/Discord-5865F2?style=for-the-bagge&logo=discord&logoColor=white" alt="Discord" /></a>
 [![Awesome](https://awesome.re/badge.svg)](https://github.com/ishandutta2007/Awesome-Awesome-Awesome)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
-[![GitHub stars](https://img.shields.io/github/stars/ishandutta2007/Awesome-Physics-Simulation-Engine-Game-Physics?style=social)](https://github.com/ishandutta2007/Awesome-Physics-Simulation-Engine-Game-Physics/stargazers)
+[![GitHub_Stars](https://img.shields.io/github/stars/ishandutta2007/Awesome-Physics-Simulation-Engine-Game-Physics?style=social)](https://github.com/ishandutta2007/Awesome-Physics-Simulation-Engine-Game-Physics/stargazers)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 <a href="https://github.com/ishandutta2007"><img alt="GitHub followers" src="https://img.shields.io/github/followers/ishandutta2007?label=Follow" /></a>
 
@@ -61,9 +61,9 @@ The following commercial physics platforms, simulation cloud services, and enter
 
 ## 🔓 Open-Source GitHub Projects 🌟
 
-A curated selection of the best open-source physics engines, collision libraries, and numerical solvers. Repositories are ranked in descending order by **GitHub Stars** with live stargazer badges.
+A curated selection of the best open-source physics engines, collision libraries, and numerical solvers. Repositories are ranked in descending order by **GitHub_Stars** with live stargazer badges.
 
-| Rank | 📦 Project & Repository | 🌟 Star Count | 💻 Primary Language | 🚀 Physics Domains & Solver Highlights |
+| Rank | 📦 Project & Repository | 🌟 Stars_Count | 💻 Primary Language | 🚀 Physics Domains & Solver Highlights |
 |:---:|:---|:---:|:---:|:---|
 | 1 | **[Godot Engine](https://github.com/godotengine/godot)** | [![Stars](https://img.shields.io/github/stars/godotengine/godot?style=social&color=white)](https://github.com/godotengine/godot/stargazers) | C++ | Full-featured 2D/3D game engine featuring built-in discrete physics solvers and modular plug-and-play architecture. |
 | 2 | **[Taichi Programming Language](https://github.com/taichi-dev/taichi)** | [![Stars](https://img.shields.io/github/stars/taichi-dev/taichi?style=social&color=white)](https://github.com/taichi-dev/taichi/stargazers) | C++ / Python | High-performance parallel computing framework for real-time physical simulation, MLS-MPM, and differentiable fluids. |
